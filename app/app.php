@@ -30,5 +30,19 @@
         return $app['twig']->render('search.twig');
     });
 
+    //page to getting albums matching artist searched to render
+    $app->get("/result", function() use ($app) {
+        // create new array to store matches
+        $cd_results = [];
+        foreach ($_SESSION['cds'] as $cd) {
+            // push matches to $cd_results
+            if ($cd->getArtist() == $_GET['artist']) {
+                array_push($cd_results, $cd);
+            }
+        }
+        // pass matches and render result.twig 
+        return $app['twig']->render('result.twig', array('albums' => $cd_results));
+    });
+
     return $app;
 ?>

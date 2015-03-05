@@ -2,13 +2,13 @@
 <html>
 <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Your CD Collection</title>
+    <title>Your CD Search</title>
 </head>
 
 <body>
     <div class='container'>
-        <h1>Your CD Collection</h1>
-        {% for album in cds %}
+        <h1>Your search results:</h1>
+        {% for album in albums %}
         <div class='row'>
                <div class='col-md-6'>
                    <img src="{{ album.getCoverArt }}">
@@ -21,11 +21,8 @@
         </div>
         {% endfor %}
     </div>
-    <form action="/searchbyartist">
-        <button type="submit" class="btn-normal">Search by Artist</button>
-    </form>
-    <form action="/cdInput">
-        <button type="submit" class="btn-success">Add New</button>
+    <form action="/">
+        <button type="submit" class="btn-success">Go Home</button>
     </form>
 </body>
 </html>
