@@ -57,7 +57,8 @@
         {
             return $this->cover_art;
         }
-
+        
+        //save the particular CD instance in the session array
         function save() {
             array_push($_SESSION['cds'], $this);
         }

@@ -4,7 +4,9 @@
 
     session_start();
     if (empty($_SESSION['cds'])) {
+        // kill all session vars in 'cds'
         $_SESSION['cds'] = [];
+
         require_once __DIR__."/../src/cdData.php";
     }
 
@@ -34,13 +36,15 @@
     $app->get("/result", function() use ($app) {
         // create new array to store matches
         $cd_results = [];
+        // create serach term to include wildcards
+        $term = "*" . strtolower($_GET['artist']) . "*";
         foreach ($_SESSION['cds'] as $cd) {
             // push matches to $cd_results
-            if ($cd->getArtist() == $_GET['artist']) {
+            if (fnmatch($term, strtolower($cd->getArtist()))) {
                 array_push($cd_results, $cd);
             }
         }
-        // pass matches and render result.twig 
+        // pass matches and render result.twig
         return $app['twig']->render('result.twig', array('albums' => $cd_results));
     });
 
