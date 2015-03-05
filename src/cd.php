@@ -58,5 +58,12 @@
             return $this->cover_art;
         }
 
+        function save() {
+            array_push($_SESSION['cds'], $this);
+        }
+
+        static function getCDs() {
+            return $_SESSION['cds'];
+        }
     }
 ?>
