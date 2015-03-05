@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>Your CD Collection</title>
+</head>
+
+<body>
+    <div class='container'>
+        <h1>Your CD Collection</h1>
+        <form action="/cdInputed" method="post">
+            <div class="form-group">
+                <label for="title">Enter Title:</label>
+                <input id="title" name="title" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="artist">Enter Artist:</label>
+                <input id="artist" name="artist" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="cover_art">Album art URL:</label>
+                <input id="cover_art" name="cover_art" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="price">Enter Price:</label>
+                <input id="price" name="price" class="form-control" type="number">
+            </div>
+            <button type="submit" class="btn-success">Submit</button>
+        </form>
+    </div>
+    <br>
+    <form action="/">
+        <button type="submit" class="btn-success">Return Home</button>
+    </form>
+
+</body>
+</html>

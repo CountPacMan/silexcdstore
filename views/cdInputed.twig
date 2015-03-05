@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>CD Added!</title>
+</head>
+
+<body>
+    <div class='container'>
+        <h1>CD added!</h1>
+        <div class='row'>
+               <div class='col-md-6'>
+                   <img src="{{ album.getCoverArt }}">
+               </div>
+               <div class='col-md-6'>
+                    <p> {{ album.getTitle }} </p>
+                    <p>By {{ album.getArtist }} </p>
+                    <p>${{ album.getPrice }} </p>
+                </div>
+        </div>
+    </div>
+    <form action="/cdInput">
+        <button type="submit" class="btn-success">Add New</button>
+    </form>
+    <form action="/">
+        <button type="submit" class="btn-success">Go Home</button>
+    </form>
+</body>
+</html>
